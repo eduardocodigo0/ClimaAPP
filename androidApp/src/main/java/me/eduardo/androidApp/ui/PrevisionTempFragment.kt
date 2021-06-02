@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.location.*
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import me.eduardo.androidApp.adapter.PrevisionTempAdapter
@@ -23,6 +24,7 @@ class PrevisionTempFragment : Fragment() {
     private var _binding: FragmentPrevisionTempBinding? = null
     private val binding get() = _binding!!
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    private  var job: Job? = null
 
     @SuppressLint("MissingPermission")
     override fun onCreateView(
@@ -39,20 +41,7 @@ class PrevisionTempFragment : Fragment() {
             ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
                 .create(PrevisionTempViewModel::class.java)
 
-        lifecycleScope.launch() {
-            viewModel.baseVM.weather.collect { data ->
 
-                data?.let {
-                    binding.rvPrevision.apply {
-                        adapter = PrevisionTempAdapter(it.daily)
-                    }
-                    binding.rvPrevision.visibility = View.VISIBLE
-                    binding.pbPrevLoad.visibility = View.GONE
-                }
-
-
-            }
-        }
         fusedLocationProviderClient =
             LocationServices.getFusedLocationProviderClient(requireActivity())
 
@@ -90,6 +79,28 @@ class PrevisionTempFragment : Fragment() {
         return binding.root
     }
 
+    override fun onStart() {
+        job = lifecycleScope.launch() {
+            viewModel.baseVM.weather.collect { data ->
+
+                data?.let {
+                    binding.rvPrevision.apply {
+                        adapter = PrevisionTempAdapter(it.daily)
+                    }
+                    binding.rvPrevision.visibility = View.VISIBLE
+                    binding.pbPrevLoad.visibility = View.GONE
+                }
+
+
+            }
+        }
+        super.onStart()
+    }
+
+    override fun onStop() {
+        job?.cancel()
+        super.onStop()
+    }
 
     override fun onDestroyView() {
         _binding = null

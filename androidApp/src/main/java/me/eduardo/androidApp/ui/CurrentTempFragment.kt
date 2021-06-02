@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.location.*
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import me.eduardo.androidApp.databinding.FragmentCurrentTempBinding
@@ -26,6 +27,7 @@ class CurrentTempFragment : Fragment() {
     private var _binding: FragmentCurrentTempBinding? = null
     private val binding get() = _binding!!
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    private var job: Job? = null
 
     @SuppressLint("MissingPermission")
     override fun onCreateView(
@@ -46,34 +48,6 @@ class CurrentTempFragment : Fragment() {
         viewModel =
             ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
                 .create(CurrentTempViewModel::class.java)
-
-        lifecycleScope.launch {
-            viewModel.baseVM.weather.collect { data ->
-                data?.let {
-
-                    binding.tvTemperature.text = "${it.main.temp.kelvinToCelsius()}°C"
-                    binding.tvCity.text = it.name
-                    binding.tvDescription.text = it.weather[0].description
-                    binding.tvDate.text = it.dt.toDate()
-                    binding.tvFeels.text = "Feels Like: ${it.main.feels_like.kelvinToCelsius()}°C"
-                    binding.tvHumidity.text = "Humidity: ${it.main.humidity}%"
-                    binding.tvMaxTemperature.text = "MAX: ${it.main.temp_max.kelvinToCelsius()}°C"
-                    binding.tvMinTemperature.text = "MIN: ${it.main.temp_min.kelvinToCelsius()}°C"
-
-                    Picasso.get().load(WeatherAPI.getIconEndPoint(it.weather[0].icon))
-                        .into(binding.ivWeatherIcon)
-
-                    binding.tvCity.visibility = View.VISIBLE
-                    binding.tvDate.visibility = View.VISIBLE
-                    binding.tvFeels.visibility = View.VISIBLE
-                    binding.tvHumidity.visibility = View.VISIBLE
-                    binding.clCard.visibility = View.VISIBLE
-                    binding.tvDescription.visibility = View.VISIBLE
-                    binding.pbLoad.visibility = View.GONE
-
-                }
-            }
-        }
 
         fusedLocationProviderClient =
             LocationServices.getFusedLocationProviderClient(requireActivity())
@@ -104,6 +78,42 @@ class CurrentTempFragment : Fragment() {
         )
 
         return binding.root
+    }
+
+    override fun onStart() {
+        job = lifecycleScope.launch {
+            viewModel.baseVM.weather.collect { data ->
+                data?.let {
+
+                    binding.tvTemperature.text = "${it.main.temp.kelvinToCelsius()}°C"
+                    binding.tvCity.text = it.name
+                    binding.tvDescription.text = it.weather[0].description
+                    binding.tvDate.text = it.dt.toDate()
+                    binding.tvFeels.text = "Feels Like: ${it.main.feels_like.kelvinToCelsius()}°C"
+                    binding.tvHumidity.text = "Humidity: ${it.main.humidity}%"
+                    binding.tvMaxTemperature.text = "MAX: ${it.main.temp_max.kelvinToCelsius()}°C"
+                    binding.tvMinTemperature.text = "MIN: ${it.main.temp_min.kelvinToCelsius()}°C"
+
+                    Picasso.get().load(WeatherAPI.getIconEndPoint(it.weather[0].icon))
+                        .into(binding.ivWeatherIcon)
+
+                    binding.tvCity.visibility = View.VISIBLE
+                    binding.tvDate.visibility = View.VISIBLE
+                    binding.tvFeels.visibility = View.VISIBLE
+                    binding.tvHumidity.visibility = View.VISIBLE
+                    binding.clCard.visibility = View.VISIBLE
+                    binding.tvDescription.visibility = View.VISIBLE
+                    binding.pbLoad.visibility = View.GONE
+
+                }
+            }
+        }
+        super.onStart()
+    }
+
+    override fun onPause() {
+        job?.cancel()
+        super.onPause()
     }
 
     override fun onDestroyView() {

@@ -2249,6 +2249,8 @@ int string abc_shareactionprovider_share_with 0x7f0f0018
 int string abc_shareactionprovider_share_with_application 0x7f0f0019
 int string abc_toolbar_collapse_description 0x7f0f001a
 int string appbar_scrolling_view_behavior 0x7f0f001b
+int string bottom_menu_weather_now 0x7f0f006e
+int string bottom_menu_weather_week 0x7f0f006f
 int string bottom_sheet_behavior 0x7f0f001c
 int string character_counter_content_description 0x7f0f001d
 int string character_counter_overflowed_content_description 0x7f0f001e
@@ -2320,6 +2322,7 @@ int string mtrl_picker_toggle_to_text_input_mode 0x7f0f005f
 int string mtrl_picker_toggle_to_year_selection 0x7f0f0060
 int string nav_app_bar_navigate_up_description 0x7f0f0061
 int string nav_app_bar_open_drawer_description 0x7f0f0062
+int string no_permission_alert 0x7f0f0070
 int string password_toggle_content_description 0x7f0f0063
 int string path_password_eye 0x7f0f0064
 int string path_password_eye_mask_strike_through 0x7f0f0065
