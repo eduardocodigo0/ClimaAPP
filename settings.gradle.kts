@@ -10,6 +10,7 @@ pluginManagement {
 rootProject.name = "ClimaAPP"
 
 
+
 include(":androidApp")
 include(":shared")
 

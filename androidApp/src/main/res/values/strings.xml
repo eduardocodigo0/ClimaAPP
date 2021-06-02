@@ -1,0 +1,8 @@
+<resources>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="weelk_prevision_label">Week</string>
+    <string name="no_permission_alert">This app needs the LOCATION permission to work!</string>
+    <string name="bottom_menu_weather_now">Now</string>
+    <string name="bottom_menu_weather_week">Week</string>
+</resources>

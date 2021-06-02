@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:title="@string/bottom_menu_weather_now"
+            android:icon="@drawable/ic_sun"
+            android:id="@+id/currentTempFragment" />
+
+    <item
+            android:title="@string/bottom_menu_weather_week"
+            android:icon="@drawable/ic_calendar"
+            android:id="@+id/previsionTempFragment" />
+
+</menu>

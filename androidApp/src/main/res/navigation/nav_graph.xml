@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/nav_graph"
+        app:startDestination="@id/currentTempFragment">
+
+    <fragment
+            android:id="@+id/currentTempFragment"
+            android:name="me.eduardo.androidApp.ui.CurrentTempFragment"
+            android:label="fragment_current_temp"
+            tools:layout="@layout/fragment_current_temp" />
+    <fragment
+            android:id="@+id/previsionTempFragment"
+            android:name="me.eduardo.androidApp.ui.PrevisionTempFragment"
+            android:label="fragment_prevision_temp"
+            tools:layout="@layout/fragment_prevision_temp" />
+</navigation>

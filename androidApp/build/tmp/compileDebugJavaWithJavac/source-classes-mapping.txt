@@ -1,0 +1,10 @@
+me/eduardo/androidApp/BuildConfig.java
+ me.eduardo.androidApp.BuildConfig
+me/eduardo/androidApp/databinding/ActivityMainBinding.java
+ me.eduardo.androidApp.databinding.ActivityMainBinding
+me/eduardo/androidApp/databinding/FragmentCurrentTempBinding.java
+ me.eduardo.androidApp.databinding.FragmentCurrentTempBinding
+me/eduardo/androidApp/databinding/FragmentPrevisionTempBinding.java
+ me.eduardo.androidApp.databinding.FragmentPrevisionTempBinding
+me/eduardo/androidApp/databinding/ListItemBinding.java
+ me.eduardo.androidApp.databinding.ListItemBinding

@@ -1,0 +1,95 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="me.eduardo.androidApp"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+8-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml:3:5-67
+11-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml:3:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml:4:5-79
+12-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml:4:22-76
+13    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+13-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml:5:5-81
+13-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml:5:22-78
+14    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+14-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml:6:5-79
+14-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml:6:22-76
+15    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+15-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml:7:5-85
+15-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml:7:22-82
+16
+17    <application
+17-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml:9:5-20:19
+18        android:allowBackup="false"
+18-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml:10:13-40
+19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+19-->[androidx.core:core:1.3.2] C:\Users\Eduardo\.gradle\caches\transforms-2\files-2.1\ad9ec0d2d1b2c07304feae17cef6cb28\core-1.3.2\AndroidManifest.xml:24:18-86
+20        android:debuggable="true"
+21        android:extractNativeLibs="false"
+22        android:supportsRtl="true"
+22-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml:11:13-39
+23        android:testOnly="true"
+24        android:theme="@style/AppTheme" >
+24-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml:12:13-44
+25        <activity
+25-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml:13:9-19:20
+26            android:name="me.eduardo.androidApp.MainActivity"
+26-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml:13:19-47
+27            android:screenOrientation="portrait" >
+27-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml:14:17-53
+28            <intent-filter>
+28-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml:15:13-18:29
+29                <action android:name="android.intent.action.MAIN" />
+29-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml:16:17-68
+29-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml:16:25-66
+30
+31                <category android:name="android.intent.category.LAUNCHER" />
+31-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml:17:17-76
+31-->C:\gitCoisas\ClimaAPP\androidApp\src\main\AndroidManifest.xml:17:27-74
+32            </intent-filter>
+33        </activity>
+34        <activity android:name="com.vmadalin.easypermissions.components.TestActivity" />
+34-->[com.vmadalin:easypermissions-ktx:1.0.0] C:\Users\Eduardo\.gradle\caches\transforms-2\files-2.1\1277e4b07aac6ab0c0af2a9f62271447\easypermissions-ktx-1.0.0\AndroidManifest.xml:13:9-89
+34-->[com.vmadalin:easypermissions-ktx:1.0.0] C:\Users\Eduardo\.gradle\caches\transforms-2\files-2.1\1277e4b07aac6ab0c0af2a9f62271447\easypermissions-ktx-1.0.0\AndroidManifest.xml:13:19-86
+35        <activity android:name="com.vmadalin.easypermissions.components.TestAppCompatActivity" />
+35-->[com.vmadalin:easypermissions-ktx:1.0.0] C:\Users\Eduardo\.gradle\caches\transforms-2\files-2.1\1277e4b07aac6ab0c0af2a9f62271447\easypermissions-ktx-1.0.0\AndroidManifest.xml:14:9-98
+35-->[com.vmadalin:easypermissions-ktx:1.0.0] C:\Users\Eduardo\.gradle\caches\transforms-2\files-2.1\1277e4b07aac6ab0c0af2a9f62271447\easypermissions-ktx-1.0.0\AndroidManifest.xml:14:19-95
+36        <activity android:name="com.vmadalin.easypermissions.components.TestSupportFragmentActivity" />
+36-->[com.vmadalin:easypermissions-ktx:1.0.0] C:\Users\Eduardo\.gradle\caches\transforms-2\files-2.1\1277e4b07aac6ab0c0af2a9f62271447\easypermissions-ktx-1.0.0\AndroidManifest.xml:15:9-104
+36-->[com.vmadalin:easypermissions-ktx:1.0.0] C:\Users\Eduardo\.gradle\caches\transforms-2\files-2.1\1277e4b07aac6ab0c0af2a9f62271447\easypermissions-ktx-1.0.0\AndroidManifest.xml:15:19-101
+37
+38        <provider
+38-->[com.squareup.picasso:picasso:2.71828] C:\Users\Eduardo\.gradle\caches\transforms-2\files-2.1\ace7f882da79a31070ab2743cb96ea21\picasso-2.71828\AndroidManifest.xml:8:9-11:40
+39            android:name="com.squareup.picasso.PicassoProvider"
+39-->[com.squareup.picasso:picasso:2.71828] C:\Users\Eduardo\.gradle\caches\transforms-2\files-2.1\ace7f882da79a31070ab2743cb96ea21\picasso-2.71828\AndroidManifest.xml:9:13-64
+40            android:authorities="me.eduardo.androidApp.com.squareup.picasso"
+40-->[com.squareup.picasso:picasso:2.71828] C:\Users\Eduardo\.gradle\caches\transforms-2\files-2.1\ace7f882da79a31070ab2743cb96ea21\picasso-2.71828\AndroidManifest.xml:10:13-72
+41            android:exported="false" />
+41-->[com.squareup.picasso:picasso:2.71828] C:\Users\Eduardo\.gradle\caches\transforms-2\files-2.1\ace7f882da79a31070ab2743cb96ea21\picasso-2.71828\AndroidManifest.xml:11:13-37
+42
+43        <activity
+43-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\Eduardo\.gradle\caches\transforms-2\files-2.1\02fafaff8a0eb126941db5b22408b410\play-services-base-17.5.0\AndroidManifest.xml:23:9-26:75
+44            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+44-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\Eduardo\.gradle\caches\transforms-2\files-2.1\02fafaff8a0eb126941db5b22408b410\play-services-base-17.5.0\AndroidManifest.xml:24:13-79
+45            android:exported="false"
+45-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\Eduardo\.gradle\caches\transforms-2\files-2.1\02fafaff8a0eb126941db5b22408b410\play-services-base-17.5.0\AndroidManifest.xml:25:13-37
+46            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+46-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\Eduardo\.gradle\caches\transforms-2\files-2.1\02fafaff8a0eb126941db5b22408b410\play-services-base-17.5.0\AndroidManifest.xml:26:13-72
+47
+48        <meta-data
+48-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\Eduardo\.gradle\caches\transforms-2\files-2.1\7b50cfe75ca46fe045835c12cb49bc61\play-services-basement-17.5.0\AndroidManifest.xml:23:9-25:69
+49            android:name="com.google.android.gms.version"
+49-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\Eduardo\.gradle\caches\transforms-2\files-2.1\7b50cfe75ca46fe045835c12cb49bc61\play-services-basement-17.5.0\AndroidManifest.xml:24:13-58
+50            android:value="@integer/google_play_services_version" />
+50-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\Eduardo\.gradle\caches\transforms-2\files-2.1\7b50cfe75ca46fe045835c12cb49bc61\play-services-basement-17.5.0\AndroidManifest.xml:25:13-66
+51    </application>
+52
+53</manifest>

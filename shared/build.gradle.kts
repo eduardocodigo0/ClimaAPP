@@ -4,6 +4,8 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("kotlin-android-extensions")
+    id("kotlin-kapt")
+    id("kotlinx-serialization")
 }
 
 group = "me.eduardo"
@@ -18,8 +20,17 @@ kotlin {
             }
         }
     }
+    val kotlinVersion = "1.4.0"
+
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting{
+            dependencies {
+                implementation("io.ktor:ktor-client-core:$kotlinVersion")
+                implementation("io.ktor:ktor-client-json:$kotlinVersion")
+                implementation("io.ktor:ktor-client-serialization:$kotlinVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.2.1")
+            }
+        }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
@@ -29,6 +40,11 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation("com.google.android.material:material:1.2.1")
+                implementation("io.ktor:ktor-client-android:$kotlinVersion")
+                implementation("io.ktor:ktor-client-json:$kotlinVersion")
+                implementation("io.ktor:ktor-client-serialization:$kotlinVersion")
+                implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3")
+                implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
             }
         }
         val androidTest by getting {
