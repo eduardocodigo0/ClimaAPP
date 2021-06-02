@@ -106,7 +106,8 @@
                 app:layout_constraintStart_toStartOf="@id/tv_temperature"
                 app:layout_constraintTop_toBottomOf="@id/tv_temperature"
                 android:layout_marginTop="8dp"
-                android:textColor="@color/black"
+                android:textColor="@color/red"
+                android:textStyle="bold"
                 android:textSize="16sp"
                 android:text="MAX: 40°C" />
 
@@ -117,7 +118,8 @@
                 app:layout_constraintStart_toStartOf="@id/tv_max_temperature"
                 app:layout_constraintTop_toBottomOf="@id/tv_max_temperature"
                 android:layout_marginTop="8dp"
-                android:textColor="@color/black"
+                android:textColor="@color/light_green"
+                android:textStyle="bold"
                 android:textSize="16sp"
                 android:text="MIN: 40°C" />
 
