@@ -20,7 +20,7 @@ kotlin {
             }
         }
     }
-    val kotlinVersion = "1.4.0"
+    val kotlinVersion = "1.5.0"
 
     sourceSets {
         val commonMain by getting{

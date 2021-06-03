@@ -1,1 +1,2 @@
 secret.properties
+shared/src/commonMain/kotlin/me/eduardo/shared/Constants.kt
