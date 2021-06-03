@@ -10,11 +10,17 @@ class CurrentTemperatureVMBase{
     private val _weather =  MutableStateFlow<WeatherNowResponse?>(null)
     val weather get() = _weather
 
+    private val _error =  MutableStateFlow<Boolean>(false)
+    val error get() = _error
+
 
     suspend fun getWeatherData(latitude: Double, longitude: Double){
-
-        val data = api.getCurrentWeather(latitude, longitude)
-        _weather.value = data
+        try {
+            val data = api.getCurrentWeather(latitude, longitude)
+            _weather.value = data
+        }catch (err: Exception){
+            _error.value = true
+        }
     }
 
 }

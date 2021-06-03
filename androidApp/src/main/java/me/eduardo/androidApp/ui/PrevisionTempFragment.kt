@@ -8,12 +8,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.location.*
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import me.eduardo.androidApp.R
 import me.eduardo.androidApp.adapter.PrevisionTempAdapter
 import me.eduardo.androidApp.databinding.FragmentPrevisionTempBinding
 
@@ -24,7 +26,8 @@ class PrevisionTempFragment : Fragment() {
     private var _binding: FragmentPrevisionTempBinding? = null
     private val binding get() = _binding!!
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
-    private  var job: Job? = null
+    private var weatherJob: Job? = null
+    private var errorJob: Job? = null
 
     @SuppressLint("MissingPermission")
     override fun onCreateView(
@@ -80,7 +83,7 @@ class PrevisionTempFragment : Fragment() {
     }
 
     override fun onStart() {
-        job = lifecycleScope.launch() {
+        weatherJob = lifecycleScope.launch() {
             viewModel.baseVM.weather.collect { data ->
 
                 data?.let {
@@ -90,15 +93,25 @@ class PrevisionTempFragment : Fragment() {
                     binding.rvPrevision.visibility = View.VISIBLE
                     binding.pbPrevLoad.visibility = View.GONE
                 }
-
-
             }
         }
+
+        errorJob = lifecycleScope.launch {
+            viewModel.baseVM.error.collect { error ->
+                if(error){
+                    Toast.makeText(context, R.string.no_internet_alert, Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+
+
+
         super.onStart()
     }
 
     override fun onStop() {
-        job?.cancel()
+        weatherJob?.cancel()
+        errorJob?.cancel()
         super.onStop()
     }
 

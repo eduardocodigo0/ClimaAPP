@@ -2322,6 +2322,7 @@ int string mtrl_picker_toggle_to_text_input_mode 0x7f0f0061
 int string mtrl_picker_toggle_to_year_selection 0x7f0f0062
 int string nav_app_bar_navigate_up_description 0x7f0f0063
 int string nav_app_bar_open_drawer_description 0x7f0f0064
+int string no_internet_alert 0x7f0f0071
 int string no_permission_alert 0x7f0f0065
 int string password_toggle_content_description 0x7f0f0066
 int string path_password_eye 0x7f0f0067
